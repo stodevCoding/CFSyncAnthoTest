@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CFSync</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://zupimages.net/up/19/15/e413.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="google-signin-client_id" content="552617427957-brientks2afq5odkdsib5ubru52lgcg0.apps.googleusercontent.com">-->
+    <script type="text/javascript" src="script.js"></script>
+    <script src="sendMessage.js"></script>
+    <script>
+       // if(isSigned == false){
+        //    window.location.pathname = '/'
+        //}
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA0LpWKnOV-hoppUNJtUZmoK6yLdufAc80",
+        authDomain: "cfsync-9d06b.firebaseapp.com",
+        databaseURL: "https://cfsync-9d06b.firebaseio.com",
+        projectId: "cfsync-9d06b",
+        storageBucket: "cfsync-9d06b.appspot.com",
+        messagingSenderId: "552617427957"
+      };
+      var database = firebase.initializeApp(config);
+
+      //var database = firebase.database();
+      var db = firebase.firestore();
+
+      // Test get Messages
+       /*db.collection('TP_general').get().then(function(querySnapshot) {
+         querySnapshot.forEach(function(doc) {
+           console.log(doc.id, '=>', doc.data());
+         });
+       });*/
+      // Test get Messages realtime last messa
+      allMessage = [];
+      db.collection('TP_general').onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+          if (change.type === 'added') {
+            msg = change.doc.data().msg;
+            prenom = change.doc.data().user;
+            var json = parseInt(change.doc.data().time.seconds);
+            console.log('log json = ' + json)
+            var dateStr = JSON.parse(json);  
+            console.log('log datestr =' + dateStr); 
+            var date = new Date(dateStr);
+            // Hours part from the timestamp
+            var hours = date.getHours();
+            // Minutes part from the timestamp
+            var minutes = "0" + date.getMinutes();
+            // Seconds part from the timestamp
+            var seconds = "0" + date.getSeconds();
+            
+            // Will display time in 10:30:23 format
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            console.log('log date =' + date);
+        
+        
+            $('#ulmsg').append('<li><div class="message-data"><span class="message-data-name">'+prenom+'</span><span class="message-data-time">'+date+'</span></div><div class="message my-message"><a>'+msg+'</a></div></li>');
+            console.log(msg);
+            allMessage.push(change.doc.data());
+          }
+          if (change.type === "modified") {
+            console.log("Modified city: ", change.doc.data());
+          }
+          if (change.type === "removed") {
+            console.log("Removed city: ", change.doc.data());
+          }
+        });
+      });
+      
+       function signOut() {
+            /*var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+              console.log('User signed out.');
+            });*/
+            database.auth().signOut();
+            window.location.pathname = '/'
+          }
+    </script>
+  </head>
+  <body>
+ <div id="bg"></div>
+    <div id="all">
+      <div id="left">
+            <img id="logo" src="https://zupimages.net/up/19/15/zw6l.png">
+            <img id="group" src="https://zupimages.net/up/19/15/u3dm.png">
+            <img id="tp" src="https://zupimages.net/up/19/15/tuy1.png">
+            <img id="a" src="https://zupimages.net/up/19/15/sjbi.png">
+            <img id="i" src="https://zupimages.net/up/19/15/r35q.png">
+            <a href="#" onclick="signOut();">
+          <img id="settings" src="https://zupimages.net/up/19/15/usd7.png">
+          </a>
+      </div>
+      <div id="semileft">
+        <div id="salon">
+            <p id=groupe>Temps plein</p>
+            <div id="icons">
+               <img class="chaticons" src="https://zupimages.net/up/19/15/lxb4.png">
+               <img class="chaticons" src="https://zupimages.net/up/19/15/nf8z.png">
+               <img class="chaticons" src="https://zupimages.net/up/19/15/xeat.png">
+            </div>
+            <input type="text" id="search" name="fname" placeholder="Search..">
+        </div>
+        <div id="channels">
+        <p class="titlechannel">Text channels</p>
+            <a class="channel" onClick='test()'># General</a>
+            <a class="channel"># Groupe 1</a>
+            <a class="channel"># Groupe 2</a>
+            <a class="channel"># Groupe 3</a>
+            <a class="channel"># Groupe 4</a>
+            <a class="channel"># Infos</a>
+        <p class="titlechannel">Share channels</p>
+            <a class="channel"># Code</a>
+            <a class="channel"># Images</a>
+            <a class="channel"># Git</a>
+            <a class="channel"># Links</a>
+        </div>
+      </div>
+      <div id="right">
+        <div id="chatMessages">
+            <ul id="ulmsg">
+              <li>
+                <div class="message-data">
+                <span class="message-data-name"> Prénom</span>
+                <span class="message-data-time">19:12 </span>
+                </div>
+                <div class="message my-message">
+                <a>
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
+                </a>
+                </div>
+              </li>
+            </ul>
+        </div>
+        <div id="sendblock">
+                <div id="typing">
+         <div class="ticontainer">
+          <div class="tiblock">
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+            <a id="istyping">Quelqu'un écrit</a>
+          </div>
+        </div>
+        </div>
+          <form id="formmessage">
+            <div>
+              <input id="fieldmessage" type="text" name="fname">
+            </div>
+            <div id="plane">
+              <input type="submit" id="send" value="" onclick="sendMessage()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <script type="text/javascript">
+    //
+    // Listen fieldmessage
+    //
+    document.getElementById("fieldmessage").addEventListener("focus", function(event) {
+      onWriting();
+    }, true);
+    document.getElementById("fieldmessage").addEventListener("blur", function(event) {
+      stopWriting();
+    }, true);
+    //
+    // Listen Change in firebase
+    //
+    db.collection('onWrite').doc('main').onSnapshot(function(doc) {
+      // if someone is writing
+      if (doc.data().write === true) {
+          console.log('ca ecrit');
+        $('#typing').css('display', 'block');
+      }
+      else{
+        $('#typing').css('display', 'none');
+      }
+    });
+  </script>
+  </body>
+</html>

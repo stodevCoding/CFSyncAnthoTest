@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>CS - Connexion</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/png" href="https://zupimages.net/up/19/15/e413.png" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!--<meta name="google-signin-client_id" content="552617427957-brientks2afq5odkdsib5ubru52lgcg0.apps.googleusercontent.com">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script type="text/javascript">isSigned = false;</script>-->
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="sendMessage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA0LpWKnOV-hoppUNJtUZmoK6yLdufAc80",
+        authDomain: "cfsync-9d06b.firebaseapp.com",
+        databaseURL: "https://cfsync-9d06b.firebaseio.com",
+        projectId: "cfsync-9d06b",
+        storageBucket: "cfsync-9d06b.appspot.com",
+        messagingSenderId: "552617427957"
+      };
+      var database = firebase.initializeApp(config);
+
+      //var database = firebase.database();
+      var db = firebase.firestore();
+    </script>
+    <script>
+        database.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                alert("Connecté");
+                window.location.pathname = '/index'
+            } else {
+                // User is signed out.
+                //window.location.pathname = '/'
+            }
+        });
+    </script>
+</head>
+<body>
+	
+	<div class="limiter">
+        
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" style="margin-top: 100px;">
+					<img src="https://zupimages.net/up/19/15/zw6l.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Connexion à <br> Coding Sync
+					</span>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="password" id="mdp" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="login()">
+							Connexion
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Mot de passe
+						</span>
+						<a class="txt2" href="https://media.tenor.com/images/52e0a47e60c5a03acdcaa95a35c03606/tenor.gif">
+							oublié ?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="http://codingsync.cf/create">
+							Créer un compte
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+{
+  "users": [
+    {
+      "profil":"Melisandre",
+      "taux":"9"
+  },
+    {
+      "profil":"Mathis",
+      "taux":"1"
+    }
+  ]
+}

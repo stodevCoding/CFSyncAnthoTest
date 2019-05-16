@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.3.0/fonts/circular-bold.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.3.0/fonts/circular-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+body, html{
+    height: 100%;
+    margin: 0;
+    background-color: #8b8b8b;
+}
+
+
+#bglogin{
+    height: 100%;
+    width: 100%;
+    background-image: url(https://zupimages.net/up/19/15/46vo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+
+}
+#googlebutton{
+    margin-top: 80px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    width: 20vw;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    outline: none;
+}
+
+.g-signin2{
+    display: inline-block; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#logincontner{
+    height: 80vh;
+    width: 70vw;
+    background-color: rgba(0, 0, 0, 0.45);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    display: flex;
+}
+
+#loginimage{
+    width: 50%;
+    position: relative;   
+}
+
+#loginimaget{
+    height: 20vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#loginmenu{
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+#logintitle{
+    margin-top: 20vh;
+    color: white;
+    font-family: circular;
+    font-size: 3vw;
+    
+}
+
+#all{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#left{
+    position: sticky;
+    background-color: rgba(0, 0, 0, 0.63);
+    height: 100%;
+    width: 70px;
+    justify-content: center;
+    position:relative;
+    display: flex;
+}
+
+#logo{
+    padding-top: 20px;
+    height: 30px;
+    position:absolute;
+}
+
+#group{
+    position:absolute;
+    height: 20px;
+    padding-top: 20vh;
+}
+
+#a{position:absolute;
+   height: 30px;
+    padding-top: 40vh;
+}
+
+#i{position:absolute;
+    height: 30px;
+    padding-top: 50vh;
+}
+
+#tp{
+    position:absolute;
+    height: 30px;
+    padding-top: 30vh;
+}
+
+#settings{
+    height: 20px;
+    position:absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+
+#right{
+    background-color: #2f3338;
+    height: 100%;
+    width: 80%;
+    position:relative;
+}
+
+#semileft{
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.86);
+}
+
+#salon{
+    text-align: center;
+    font-family: Circular;
+    color: white;
+    font-size: 30px;
+}
+
+#icons{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.chaticons{
+    padding: 23px;
+    height: 20px
+}
+
+#search{
+    margin-top: 1vh;
+    height: 40px;
+    width: 140px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    outline: none;
+    color: white;
+    padding-left: 10px;
+}
+
+#channels{
+    margin-top: 40px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.titlechannel{
+    font-size: 20px;
+    margin-left: 20px;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+.channel{
+    margin-left: 40px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin-top: 10px;
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+
+form{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5vw;
+    margin-top: 45px;
+}
+
+#sendblock{
+    background-color: #000000;
+    height: 15vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#fieldmessage{
+    
+    height: 40px;
+    width: 50vw;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: none;
+    outline: none;
+    color: white;
+    display: inline-block; 
+}
+
+#send{
+    background-image: url(https://zupimages.net/up/19/15/7k79.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 255, 255, 0);
+    height: 33px;
+    width: 33px;
+    outline: none;
+    border: none;
+    display: inline-block;
+    
+}
+#plane{
+    margin-top: 5px;
+    margin-left: 2vw;
+}
+
+/*   MESSAGES BOX    */
+
+#chatMessages{
+    font-family: 'Open Sans', sans-serif;
+    overflow-y: scroll;
+    height: 85vh;
+}
+
+.message-data-name{
+    color: white;
+}
+
+.message-data {
+    margin-bottom: 15px;
+}
+ul {
+    list-style: none;
+}
+.message-data-time {
+    color: #a8aab1;
+    padding-left: 6px;
+    font-size: 10PX
+}
+.my-message {
+    background: #5691d6;
+}
+.message {
+    color: white;
+    padding: 10px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    width: 90%;
+    position: relative;
+}
+
+#typing{
+    display: none;
+    color: #969393;
+    position: absolute;
+    margin-left: 5vw;
+    margin-top: 20px;
+}
+
+#istyping{
+    margin-left: 4px;
+}
+
+.tiblock {
+    align-items: center;
+    display: flex;
+    height: 17px;
+    font-family: Open Sans;
+    font-size: 14px;
+}
+
+.ticontainer .tidot {
+    background-color: #969393;
+}
+
+.tidot {
+    -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+    border-radius: 2px;
+    display: inline-block;
+    height: 4px;
+    margin-right: 2px;
+    width: 4px;
+}
+
+@-webkit-keyframes mercuryTypingAnimation{
+0%{
+  -webkit-transform:translateY(0px)
+}
+28%{
+  -webkit-transform:translateY(-5px)
+}
+44%{
+  -webkit-transform:translateY(0px)
+}
+}
+
+.tidot:nth-child(1){
+-webkit-animation-delay:200ms;
+}
+.tidot:nth-child(2){
+-webkit-animation-delay:300ms;
+}
+.tidot:nth-child(3){
+-webkit-animation-delay:400ms;
+}
+
+#bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    background-image: url(https://cdn.getyourguide.com/img/tour_img-643671-146.jpg);
+    filter: blur(8px);
+    -webkit-filter: blur(20px);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+        
+}
